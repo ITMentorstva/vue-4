@@ -46,7 +46,7 @@ export default {
 
     this.isLoading = true;
 
-    axios.get('https://dummyjson.com/products/search?q=phone')
+    axios.get(process.env.VUE_APP_DUMMYJSON_API+'/products/search?q=phone')
         .then(response => this.fetchedProducts = response.data.products)
         .catch(() => this.apiError = "Failed to load products. Please try again later.")
         .finally(() => this.isLoading = false)
